@@ -28,17 +28,17 @@ void Game::Run()
                 break;
             }
         }
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && flag == 1)
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && flag == 1)//checking for second click position
         {
             m_balls[0]->SetVelocity(initial, sf::Mouse::getPosition());
             flag = 0;
         }
-        else if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right) && flag == 0)
+        else if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right) && flag == 0)//checking for first click position
         {
             initial = sf::Mouse::getPosition();
             flag = 1;
         }
-        if (m_balls[0]->GetPosition().x <= 40 || m_balls[0]->GetPosition().x + 40 >= 960)
+        if (m_balls[0]->GetPosition().x <= 40 || m_balls[0]->GetPosition().x + 40 >= 960)//checking if the ball hits the walls
         {
             m_balls[0]->Bounce(0);
         }
@@ -82,7 +82,7 @@ void Game::Collision()
             float CollisionDistance = abs(DotProduct * ALength) - e; // how far until collision
             if (CollisionDistance <= 0)
             {
-                std::cout << "Fuck Yeah";
+                std::cout << "Collision";
             }
         }
     }
