@@ -10,11 +10,11 @@ Ball::Ball(sf::Vector2f position)
 	m_circle.setRadius(20);
 }
 
-void Ball::SetVelocity(sf::Vector2i initial, sf::Vector2i location)
+void Ball::SetVelocity(sf::Vector2i initial, sf::Vector2i location)//figures out the velocity for the cue ball based on mouse position clicks
 {
 	m_velocityX = (initial.x - location.x)/20;
 	m_velocityY = (initial.y - location.y)/20;
-	if (m_velocityX > 1 && m_velocityX > 0)
+	if (m_velocityX > 1 && m_velocityX > 0) // clamping velocity values to 1
 	{
 		m_velocityX = 1;
 	}
@@ -63,7 +63,7 @@ sf::Vector2f Ball::GetPosition()
 	return m_position;
 }
 
-void Ball::Bounce(int flag)
+void Ball::Bounce(int flag)//inverses velocity when ball bounces on a wall
 {
 	if (flag == 0)
 	{
