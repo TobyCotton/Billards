@@ -72,6 +72,12 @@ void Ball::Move()
 	{
 		m_velocityY = 0.0f;
 	}
+		m_velocityX = 0.0f;
+	}
+	if (abs(m_velocityY) <= 0.001f)
+	{
+		m_velocityY = 0.0f;
+	}
 	m_velocityX = m_velocityX * 0.9994;
 	m_velocityY = m_velocityY * 0.9994;
 	m_position.x += m_velocityX;
