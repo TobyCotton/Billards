@@ -1,7 +1,7 @@
 #include "Table.h"
 #include <iostream>
 
-Table::Table(int value)
+Table::Table(int value)//initialise base table values and set positions to be rendered
 {
     sf::RectangleShape first{ sf::Vector2f(0,0) };
     sf::RectangleShape second{ sf::Vector2f(960,0) };

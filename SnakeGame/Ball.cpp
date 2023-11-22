@@ -17,26 +17,8 @@ void Ball::SetVelocity(sf::Vector2i initial, sf::Vector2i location)
 
 	float length = sqrt(pow(m_velocityX, 2) + pow(m_velocityY, 2));
 
-	m_velocityX = m_velocityX / length;
+	m_velocityX = m_velocityX / length;//make the velocities into unit vectors
 	m_velocityY = m_velocityY / length;
-	//m_velocityX = (initial.x - location.x);
-	//m_velocityY = (initial.y - location.y);
-	//if (m_velocityX > 1 && m_velocityX > 0)
-	//{
-	//	m_velocityX = 1;
-	//}
-	//else if (m_velocityX < -1 && m_velocityX < 0)
-	//{
-	//	m_velocityX = -1;
-	//}
-	//if (m_velocityY > 1 && m_velocityY > 0)
-	//{
-	//	m_velocityY = 1;
-	//}
-	//else if (m_velocityY < -1 && m_velocityY < 0)
-	//{
-	//	m_velocityY = -1;
-	//}
 }
 
 void Ball::SetVelocityCollision(sf::Vector2f velocity)
@@ -72,7 +54,7 @@ void Ball::Move()
 	{
 		m_velocityY = 0.0f;
 	}
-	m_velocityX = m_velocityX * 0.9994;
+	m_velocityX = m_velocityX * 0.9994;//apply fricition
 	m_velocityY = m_velocityY * 0.9994;
 	m_position.x += m_velocityX;
 	m_position.y += m_velocityY;
@@ -89,7 +71,7 @@ sf::Vector2f Ball::GetPosition()
 	return m_position;
 }
 
-void Ball::Bounce(int flag)
+void Ball::Bounce(int flag)//invert the direction when it bounces off a flat plain
 {
 	if (flag == 0)
 	{
